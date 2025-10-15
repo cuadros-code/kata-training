@@ -17,23 +17,14 @@ Ejemplo de funcionamiento:
  * @param {string[]} names - Array of names to frame
  * @returns {string} The framed names
  */
-function createFrame(names) {
-  let newList = ['', ...names, '']
-  let count = 0;
-  let result = [];
-  names.forEach( n => { 
-    if( n.length > count) { 
-      count = n.length
-    }
-  })
+export function createFrame(names) {
+  const frameNames = ['', ...names, ''];
+  const longestStr = frameNames.reduce((acc, el) => Math.max(acc, el.length), 0);  
   
-  for(let j = 0; j < newList.length; j++) {
-    if(newList[j] == ''){
-      result.push("*".repeat(count + 4))
-    } else {
-      result.push("* " + newList[j] + " ".repeat(count - newList[j].length) + " *") 
-    }
-  }
-  
+   const result = frameNames.map(name =>
+    !name
+      ? "*".repeat(longestStr + 4)
+      : `* ${name}${" ".repeat(longestStr - name.length)} *`
+  );
   return result.join("\n")
 }
