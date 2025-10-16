@@ -17,7 +17,7 @@ Ejemplo de funcionamiento:
  * @param {string[]} names - Array of names to frame
  * @returns {string} The framed names
  */
-export function createFrame(names) {
+export function createFrame(names: any[]) {
   const frameNames = ['', ...names, ''];
   const longestStr = frameNames.reduce((acc, el) => Math.max(acc, el.length), 0);  
   
