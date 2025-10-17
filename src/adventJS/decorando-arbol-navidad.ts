@@ -16,19 +16,22 @@
   const tree = createXmasTree(5, '*')
   console.log(tree)
 
-      ____*____
-      ___***___
-      __*****__
-      _*******_
-      *********
-      ____#____
-      ____#____
+    ____*____
+    ___***___
+    __*****__
+    _*******_
+    *********
+    ____#____
+    ____#____
 */
 
 export function createXmasTree(height: number, ornament: string): string {
-  
-
-
-  return ''
+  const tree: any[] = []
+  for(let i = 1; i <= height + 2; i++) {
+    i <= height 
+      ? tree.push('_'.repeat(height - i) + ornament.repeat(i + i - 1) + '_'.repeat(height - i))
+      : tree.push('_'.repeat(height - 1) + '#'.repeat(1) + '_'.repeat(height - 1))
+  }
+  return tree.join('\n')
 }
   

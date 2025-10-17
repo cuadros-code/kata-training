@@ -10,4 +10,4 @@ import { organizeInventory } from "./organizando-inventario";
 // ]
 // console.log(organizeInventory(inventory))
 
-console.log(createXmasTree(5, '*'))
+console.log(createXmasTree(5, '+'))
