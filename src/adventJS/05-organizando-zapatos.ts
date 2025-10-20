@@ -28,15 +28,45 @@ type Shoe = {
   size: number
 }
 
-export function organizeShoes(shoes: Shoe[]): number[] {
-  const data: number[] = [];
-  const i = shoes.filter(e => e.type == 'I')
-  const r = shoes.filter(e => e.type == 'R')
+// {
+//   38: { I: 2, R: 1 },
+//   42: { I: 1, R: 1 }
+// }
 
-  const filter = i.map( e => {
-    return r.filter( el => el.size == e.size)
-            .map(e => e.size)
-  }).filter(arr => arr.length)
-  console.log(filter)
-  return data
+export function organizeShoes(shoes: Shoe[]): number[] {
+  const result: any[] = []
+
+  const data =shoes.reduce((acc, el) => {
+    acc[el.size] ??= {}
+    acc[el.size][el.type] = (acc[el.size][el.type] ?? 0) + 1
+    return acc
+  }, {} as any) 
+
+  for (const [key, value] of Object.entries(data) as [string, any][]) {
+    let min =  Math.min(...[value['I'], value['R']])
+    for (let i = 0; i < min; i++) {
+      let data: any = {
+        size: key,
+        pair: min
+      }
+      result.push(data);
+    }
+    
+  }
+
+  return result.map(e => Number(e.size))
+
+  // const counts = shoes.reduce((acc, { type, size }) => {
+  //   acc[size] ??= { I: 0, R: 0 };
+  //   acc[size][type]++;
+  //   return acc;
+  // }, {} as any);
+
+
+  // const pairs = Object.entries(counts).flatMap(([size, { I, R }]) => {
+  //   const min = Math.min(I, R);
+  //   return Array(min).fill(+size);
+  // });
+
+  // return pairs
 }

@@ -22,8 +22,19 @@ import { organizeShoes } from "./05-organizando-zapatos";
 const shoes: any = [
   { type: 'I', size: 38 },
   { type: 'R', size: 38 },
+  { type: 'I', size: 38 },
+  { type: 'I', size: 38 },
+  { type: 'R', size: 38 }
+]
+// [38, 38]
+// console.log(organizeShoes(shoes))
+
+const shoes2: any = [
+  { type: 'I', size: 38 },
+  { type: 'R', size: 38 },
   { type: 'R', size: 42 },
   { type: 'I', size: 41 },
   { type: 'I', size: 42 }
 ]
-console.log(organizeShoes(shoes))
+// [38, 42]
+console.log(organizeShoes(shoes2))
