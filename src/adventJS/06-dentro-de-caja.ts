@@ -32,6 +32,17 @@
   ]) // ➞ false
   */
 
-export function inBox(box: string[]): boolean {
-  return false
+export function inBox(box: string[]): boolean { 
+  for (let i = 0; i < box.length; i++) {
+    const str = box[i];
+    if(
+      str.includes('*') && i == 0 || str.includes('*') && i == box.length - 1 
+      || str.startsWith('*') 
+      || str.endsWith('*') 
+      || !box.join('').includes("*")
+    ) {
+      return false
+    }
+  }
+  return true
 }

@@ -53,3 +53,12 @@ console.log(inBox([
   "#  #*",
   "#####"
 ]))
+
+console.log(inBox([
+  "#####",
+  "#   #",
+  "#   #",
+  "#####"
+]))
+
+// true, false, false
