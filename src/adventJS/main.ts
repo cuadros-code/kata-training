@@ -105,6 +105,7 @@ console.log(drawRace([0, 5, -3], 10));
 ~~~~~~~r~~ /3
 */
 
+
 console.log(drawRace([2, -1, 0, 5], 8));
 /*
    ~~r~~~~~ /1

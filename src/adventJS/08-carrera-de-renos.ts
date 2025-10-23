@@ -43,7 +43,20 @@ export function drawRace(indices: number[], length: number): string {
   let renos : string[] = []
 
   for(let i = 0; i < indices.length; i++) {
-    renos.push('~'.repeat(length) + `/${i + 1}`)
+    const position = indices[i]
+    const emptySpaces = ' '.repeat(indices.length - i - 1);
+    const numberLine = ` /${i + 1}`
+    let reindeerPosition = ''
+
+    if( position > 0 ) {
+      reindeerPosition = '~'.repeat(position) + 'r' + '~'.repeat(length - (position + 1))
+    } else if ( position == 0 ) {
+      reindeerPosition = '~'.repeat(length)
+    } else if ( position < 0 ) {
+      reindeerPosition = '~'.repeat(length + position) + 'r' + '~'.repeat(length - (length + position) - 1)
+    }
+
+    renos.push(emptySpaces + reindeerPosition + numberLine)
   }
 
   return renos.join('\n')
