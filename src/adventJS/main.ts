@@ -5,6 +5,7 @@ import { createXmasTree } from "./04-decorando-arbol-navidad";
 import { organizeShoes } from "./05-organizando-zapatos";
 import { inBox } from "./06-dentro-de-caja";
 import { fixPackages } from "./07-organizar-regalos";
+import { drawRace } from "./08-carrera-de-renos";
 
 // # 1
 // console.log(prepareGifts([3, 1, 2, 3, 4, 2, 5]))
@@ -74,11 +75,6 @@ import { fixPackages } from "./07-organizar-regalos";
 
 // # 7
 // console.log(fixPackages('a(cb)de'))
-//(ab(cd)ef)
-console.log(fixPackages(''))
-// (ab (cdfe g) h)
-// (ab gefdc h)
-// hcdfegab
 // ➞ "abcde"
 // Volteamos "cb" dentro de los paréntesis
 
@@ -100,3 +96,26 @@ console.log(fixPackages(''))
 // console.log(fixPackages('abc(def(gh(tn)i)jk)l'))
 
 // console.log(fixPackages('abc(de(ghi(jk(lm)n)lo)pq)z'))
+
+// # 8
+console.log(drawRace([0, 5, -3], 10));
+/*
+  ~~~~~~~~~~ /1
+ ~~~~~r~~~~ /2
+~~~~~~~r~~ /3
+*/
+
+console.log(drawRace([2, -1, 0, 5], 8));
+/*
+   ~~r~~~~~ /1
+  ~~~~~~~r /2
+ ~~~~~~~~ /3
+~~~~~r~~ /4
+*/
+
+console.log(drawRace([3, 7, -2], 12));
+/*
+  ~~~r~~~~~~~~ /1
+ ~~~~~~~r~~~~ /2
+~~~~~~~~~~r~ /3
+*/
