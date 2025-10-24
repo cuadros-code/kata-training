@@ -6,6 +6,7 @@ import { organizeShoes } from "./05-organizando-zapatos";
 import { inBox } from "./06-dentro-de-caja";
 import { fixPackages } from "./07-organizar-regalos";
 import { drawRace } from "./08-carrera-de-renos";
+import { moveTrain } from "./09-tren-magico";
 
 // # 1
 // console.log(prepareGifts([3, 1, 2, 3, 4, 2, 5]))
@@ -97,8 +98,9 @@ import { drawRace } from "./08-carrera-de-renos";
 
 // console.log(fixPackages('abc(de(ghi(jk(lm)n)lo)pq)z'))
 
+
 // # 8
-console.log(drawRace([0, 5, -3], 10));
+// console.log(drawRace([0, 5, -3], 10));
 /*
   ~~~~~~~~~~ /1
  ~~~~~r~~~~ /2
@@ -106,7 +108,7 @@ console.log(drawRace([0, 5, -3], 10));
 */
 
 
-console.log(drawRace([2, -1, 0, 5], 8));
+// console.log(drawRace([2, -1, 0, 5], 8));
 /*
    ~~r~~~~~ /1
   ~~~~~~~r /2
@@ -114,9 +116,35 @@ console.log(drawRace([2, -1, 0, 5], 8));
 ~~~~~r~~ /4
 */
 
-console.log(drawRace([3, 7, -2], 12));
+// console.log(drawRace([3, 7, -2], 12));
 /*
   ~~~r~~~~~~~~ /1
  ~~~~~~~r~~~~ /2
 ~~~~~~~~~~r~ /3
 */
+
+
+// # 9
+  const board = [
+    '·····',
+    '*····',
+    '@····',
+    'o····',
+    'o····'
+  ]
+
+  console.log(moveTrain(board, 'U'))
+  // ➞ 'eat'
+  // Porque el tren se mueve hacia arriba y encuentra una fruta mágica
+
+  console.log(moveTrain(board, 'D'))
+  // ➞ 'crash'
+  // El tren se mueve hacia abajo y la cabeza se choca consigo mismo
+
+  console.log(moveTrain(board, 'L'))
+  // ➞ 'crash'
+  // El tren se mueve a la izquierda y se choca contra la pared
+
+  console.log(moveTrain(board, 'R'))
+  // ➞ 'none'
+  // El tren se mueve hacia derecha y hay un espacio vacío en la derecha
