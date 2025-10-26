@@ -8,14 +8,17 @@ import { fixPackages } from "./07-organizar-regalos";
 import { drawRace } from "./08-carrera-de-renos";
 import { moveTrain } from "./09-tren-magico";
 import { compile } from "./10-ensamblador-elfico";
+import { decodeFilename } from "./11-nombres-codificados";
 
 // # 1
 // console.log(prepareGifts([3, 1, 2, 3, 4, 2, 5]))
 
+/**----------------------------------------------------------------------- */
 
 // # 2
 // console.log(createFrame(['midu', 'madeval', 'educalvolpz']))
 
+/**----------------------------------------------------------------------- */
 
 // # 3
 // const inventory = [
@@ -27,10 +30,12 @@ import { compile } from "./10-ensamblador-elfico";
 // ]
 // console.log(organizeInventory(inventory))
 
+/**----------------------------------------------------------------------- */
 
 // # 4
 // console.log(createXmasTree(5, '+'))
 
+/**----------------------------------------------------------------------- */
 
 // # 5
 // const shoes: any = [
@@ -53,6 +58,7 @@ import { compile } from "./10-ensamblador-elfico";
 // [38, 42]
 // console.log(organizeShoes(shoes2))
 
+/**----------------------------------------------------------------------- */
 
 // # 6
 // console.log(inBox([
@@ -74,6 +80,8 @@ import { compile } from "./10-ensamblador-elfico";
 //   "#   #",
 //   "#####"
 // ]))
+
+/**----------------------------------------------------------------------- */
 
 // # 7
 // console.log(fixPackages('a(cb)de'))
@@ -99,6 +107,7 @@ import { compile } from "./10-ensamblador-elfico";
 
 // console.log(fixPackages('abc(de(ghi(jk(lm)n)lo)pq)z'))
 
+/**----------------------------------------------------------------------- */
 
 // # 8
 // console.log(drawRace([0, 5, -3], 10));
@@ -124,6 +133,7 @@ import { compile } from "./10-ensamblador-elfico";
 ~~~~~~~~~~r~ /3
 */
 
+/**----------------------------------------------------------------------- */
 
 // # 9
   // const board = [
@@ -150,6 +160,7 @@ import { compile } from "./10-ensamblador-elfico";
   // ➞ 'none'
   // El tren se mueve hacia derecha y hay un espacio vacío en la derecha
 
+/**----------------------------------------------------------------------- */
 
 // # 10
 // const instructions = [
@@ -158,9 +169,19 @@ import { compile } from "./10-ensamblador-elfico";
   // 'JMP C 1', // salta a la instrucción en el índice 1 si 'C' es 0
   // 'MOV C A', // copia el registro 'C' al registro 'a',
   // 'INC A' // incrementa el valor del registro 'a'
-
-  // 'MOV 0 A',
-  // 'JMP A 0'
 // ]
 
 // console.log( compile(instructions) );
+
+/**----------------------------------------------------------------------- */
+
+// # 11
+
+console.log(decodeFilename('2023122512345678_sleighDesign.png.grinchwa'));
+// ➞ "sleighDesign.png"
+
+console.log(decodeFilename('42_chimney_dimensions.pdf.hack2023'));
+// ➞ "chimney_dimensions.pdf"
+
+console.log(decodeFilename('987654321_elf-roster.csv.tempfile'));
+// ➞ "elf-roster.csv"
