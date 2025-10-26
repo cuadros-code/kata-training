@@ -32,7 +32,54 @@
     4: INC A    -> El registro A pasa a ser 2
  */
 
-export function compile (instructions: string[]): number {
-  // Code here
-  return 0
+export function compile (instructions: string[]) {
+  let index = 0;
+  let variables: any = {};
+  let currentVarible = '';
+  let iterations = 0;
+
+  while (index < instructions.length) {
+    const steps = instructions[index]?.split(' ')
+    index++;
+
+    if (iterations++ > 500) {
+      return 1
+    }
+    
+    if( steps[0] == 'MOV' ) {
+      !Number.isNaN(+steps[1]) 
+        ? variables[steps[2]] = +steps[1]
+        : variables[steps[2]] = variables[currentVarible]
+
+      currentVarible = steps[2]
+    }
+
+    if( steps[0] == 'JMP' &&  variables[currentVarible] == 0) {
+      if( Number(steps[2]) <= instructions.length &&  Number(steps[2]) !== 0) {
+        index = Number(steps[2])
+      }
+      continue;
+    }
+
+    if( steps[0] == 'INC' ) {
+      if( !variables[steps[1]] ) {
+        currentVarible = steps[1]
+        variables[currentVarible] = 0
+      }
+      variables[currentVarible] = variables[currentVarible] + 1;
+      continue;
+    }
+
+    if( steps[0] == 'DEC' ) {
+      if( !variables[steps[1]] ) {
+        currentVarible = steps[1]
+        variables[currentVarible] = 0
+      }
+      variables[currentVarible] = variables[currentVarible] - 1;
+      continue;
+    }
+    
+  }
+
+  return variables['A'] || undefined
 }
