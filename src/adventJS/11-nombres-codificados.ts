@@ -32,5 +32,8 @@
 
 
 export function decodeFilename(filename: string): string {
-  return ''
+  const withoutPrefix = filename.replace(/^[^_]+_/, '');
+  const match = withoutPrefix.match(/^([^.]+(?:\.[^.]+){1})/);
+  
+  return match ? match[1] : withoutPrefix;
 }
