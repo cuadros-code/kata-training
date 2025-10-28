@@ -9,6 +9,7 @@ import { drawRace } from "./08-carrera-de-renos";
 import { moveTrain } from "./09-tren-magico";
 import { compile } from "./10-ensamblador-elfico";
 import { decodeFilename } from "./11-nombres-codificados";
+import { calculatePrice } from "./12-costo-arbol";
 
 // # 1
 // console.log(prepareGifts([3, 1, 2, 3, 4, 2, 5]))
@@ -177,11 +178,27 @@ import { decodeFilename } from "./11-nombres-codificados";
 
 // # 11
 
-console.log(decodeFilename('2023122512345678_sleighDesign.png.grinchwa'));
+// console.log(decodeFilename('2023122512345678_sleighDesign.png.grinchwa'));
 // ➞ "sleighDesign.png"
 
-console.log(decodeFilename('42_chimney_dimensions.pdf.hack2023'));
+// console.log(decodeFilename('42_chimney_dimensions.pdf.hack2023'));
 // ➞ "chimney_dimensions.pdf"
 
-console.log(decodeFilename('987654321_elf-roster.csv.tempfile'));
+// console.log(decodeFilename('987654321_elf-roster.csv.tempfile'));
 // ➞ "elf-roster.csv"
+
+/**----------------------------------------------------------------------- */
+
+// # 12
+
+console.log(calculatePrice('***')) // 3   (1 + 1 + 1)
+console.log(calculatePrice('*o')) // 4   (5 - 1)
+console.log(calculatePrice('o*')) // 6   (5 + 1)
+console.log(calculatePrice('*o*')) // 5  (-1 + 5 + 1) 
+console.log(calculatePrice('**o*')) // 6  (1 - 1 + 5 + 1) 
+console.log(calculatePrice('o***')) // 8   (5 + 3)
+console.log(calculatePrice('*o@')) // 94  (-5 - 1 + 100)
+console.log(calculatePrice('*#')) // 49  (-1 + 50)
+console.log(calculatePrice('@@@')) // 300 (100 + 100 + 100)
+console.log(calculatePrice('#@')) // 50  (-50 + 100)
+console.log(calculatePrice('#@Z')) // undefined (Z es desconocido)
