@@ -10,6 +10,7 @@ import { moveTrain } from "./09-tren-magico";
 import { compile } from "./10-ensamblador-elfico";
 import { decodeFilename } from "./11-nombres-codificados";
 import { calculatePrice } from "./12-costo-arbol";
+import { isRobotBack } from "./13-robot-de-vuelta";
 
 // # 1
 // console.log(prepareGifts([3, 1, 2, 3, 4, 2, 5]))
@@ -191,14 +192,33 @@ import { calculatePrice } from "./12-costo-arbol";
 
 // # 12
 
-console.log(calculatePrice('***')) // 3   (1 + 1 + 1)
-console.log(calculatePrice('*o')) // 4   (5 - 1)
-console.log(calculatePrice('o*')) // 6   (5 + 1)
-console.log(calculatePrice('*o*')) // 5  (-1 + 5 + 1) 
-console.log(calculatePrice('**o*')) // 6  (1 - 1 + 5 + 1) 
-console.log(calculatePrice('o***')) // 8   (5 + 3)
-console.log(calculatePrice('*o@')) // 94  (-5 - 1 + 100)
-console.log(calculatePrice('*#')) // 49  (-1 + 50)
-console.log(calculatePrice('@@@')) // 300 (100 + 100 + 100)
-console.log(calculatePrice('#@')) // 50  (-50 + 100)
-console.log(calculatePrice('#@Z')) // undefined (Z es desconocido)
+// console.log(calculatePrice('***')) // 3   (1 + 1 + 1)
+// console.log(calculatePrice('*o')) // 4   (5 - 1)
+// console.log(calculatePrice('o*')) // 6   (5 + 1)
+// console.log(calculatePrice('*o*')) // 5  (-1 + 5 + 1) 
+// console.log(calculatePrice('**o*')) // 6  (1 - 1 + 5 + 1) 
+// console.log(calculatePrice('o***')) // 8   (5 + 3)
+// console.log(calculatePrice('*o@')) // 94  (-5 - 1 + 100)
+// console.log(calculatePrice('*#')) // 49  (-1 + 50)
+// console.log(calculatePrice('@@@')) // 300 (100 + 100 + 100)
+// console.log(calculatePrice('#@')) // 50  (-50 + 100)
+// console.log(calculatePrice('#@Z')) // undefined (Z es desconocido)
+
+/**----------------------------------------------------------------------- */
+
+// # 13
+
+console.log(isRobotBack('R'))     // [1, 0]
+console.log(isRobotBack('RL'))    // true
+console.log(isRobotBack('RLUD'))  // true
+console.log(isRobotBack('*RU'))   // [2, 1]
+console.log(isRobotBack('R*U'))   // [1, 2]
+console.log(isRobotBack('LLL!R')) // [-4, 0]
+console.log(isRobotBack('R?R'))   // [1, 0]
+console.log(isRobotBack('U?D'))   // true
+console.log(isRobotBack('R!L'))   // [2,0]
+console.log(isRobotBack('U!D'))   // [0,2]
+console.log(isRobotBack('R?L'))   // true
+console.log(isRobotBack('U?U'))   // [0,1]
+console.log(isRobotBack('*U?U'))  // [0,2]
+console.log(isRobotBack('U?D?U')) // true
