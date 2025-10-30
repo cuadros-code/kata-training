@@ -36,6 +36,16 @@
  */
 
 export function minMovesToStables(reindeer: number[], stables: number[]): number {
-  // Code here
-  return 0
+  reindeer.sort((a, b) => a - b)
+  stables.sort((a, b) => a - b)
+
+  let moves = 0;
+
+  for(let i = 0; i < reindeer.length; i++){
+    const max = Math.max(stables[i], reindeer[i])
+    const min = Math.min(stables[i], reindeer[i])
+    moves += max - min
+  }
+  
+  return Math.abs(moves)
 }
