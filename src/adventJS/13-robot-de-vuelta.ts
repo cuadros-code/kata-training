@@ -72,23 +72,20 @@ export function isRobotBack(moves: string): true | [number, number] {
 
     if( element == 'R' ) {
       result[0] = result[0] + (move[element] * multipliX2);
-      multipliX2 = 1;
     }
 
     if( element == 'L' ) {
       result[0] = result[0] - (move[element] * -1);
-      multipliX2 = 1;
     }
 
     if( element == 'U' ) {
       result[1] = result[1] + (move[element] * multipliX2);
-      multipliX2 = 1;
     }
 
     if( element == 'D' ) {
       result[1] = result[1] - (move[element] * -1);
-      multipliX2 = 1;
     }
+    multipliX2 = 1;
   }
 
   if( result[0] == 0 && result[1] == 0 ) return true;

@@ -11,6 +11,7 @@ import { compile } from "./10-ensamblador-elfico";
 import { decodeFilename } from "./11-nombres-codificados";
 import { calculatePrice } from "./12-costo-arbol";
 import { isRobotBack } from "./13-robot-de-vuelta";
+import { minMovesToStables } from "./14-acomodando-renos";
 
 // # 1
 // console.log(prepareGifts([3, 1, 2, 3, 4, 2, 5]))
@@ -208,17 +209,27 @@ import { isRobotBack } from "./13-robot-de-vuelta";
 
 // # 13
 
-console.log(isRobotBack('R'))     // [1, 0]
-console.log(isRobotBack('RL'))    // true
-console.log(isRobotBack('RLUD'))  // true
-console.log(isRobotBack('*RU'))   // [2, 1]
-console.log(isRobotBack('R*U'))   // [1, 2]
-console.log(isRobotBack('LLL!R')) // [-4, 0]
-console.log(isRobotBack('R?R'))   // [1, 0]
-console.log(isRobotBack('U?D'))   // true
-console.log(isRobotBack('R!L'))   // [2,0]
-console.log(isRobotBack('U!D'))   // [0,2]
-console.log(isRobotBack('R?L'))   // true
-console.log(isRobotBack('U?U'))   // [0,1]
-console.log(isRobotBack('*U?U'))  // [0,2]
-console.log(isRobotBack('U?D?U')) // true
+// console.log(isRobotBack('R'))     // [1, 0]
+// console.log(isRobotBack('RL'))    // true
+// console.log(isRobotBack('RLUD'))  // true
+// console.log(isRobotBack('*RU'))   // [2, 1]
+// console.log(isRobotBack('R*U'))   // [1, 2]
+// console.log(isRobotBack('LLL!R')) // [-4, 0]
+// console.log(isRobotBack('R?R'))   // [1, 0]
+// console.log(isRobotBack('U?D'))   // true
+// console.log(isRobotBack('R!L'))   // [2,0]
+// console.log(isRobotBack('U!D'))   // [0,2]
+// console.log(isRobotBack('R?L'))   // true
+// console.log(isRobotBack('U?U'))   // [0,1]
+// console.log(isRobotBack('*U?U'))  // [0,2]
+// console.log(isRobotBack('U?D?U')) // true
+
+/**----------------------------------------------------------------------- */
+
+// # 14
+
+console.log(minMovesToStables([2, 6, 9], [3, 8, 5]))
+// 3
+
+console.log(minMovesToStables([1, 1, 3], [1, 8, 4]))
+// 8
