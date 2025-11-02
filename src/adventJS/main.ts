@@ -13,7 +13,8 @@ import { calculatePrice } from "./12-costo-arbol";
 import { isRobotBack } from "./13-robot-de-vuelta";
 import { minMovesToStables } from "./14-acomodando-renos";
 import { drawTable } from "./15-dibujando-tablas";
-import { removeSnow } from "./15-limpiar-nieve";
+import { removeSnow } from "./16-limpiar-nieve";
+import { detectBombs } from "./17-buscar-bombas";
 
 // # 1
 // console.log(prepareGifts([3, 1, 2, 3, 4, 2, 5]))
@@ -274,15 +275,52 @@ import { removeSnow } from "./15-limpiar-nieve";
 
 // # 16
 
-console.log(removeSnow('zxxzoz') ) // -> "oz"
+// console.log(removeSnow('zxxzoz') ) // -> "oz"
 // 1. Eliminamos "xx", quedando "zzoz"
 // 2. Eliminamos "zz", quedando "oz"
 
-console.log(removeSnow('abcdd')) // -> "abc"
+// console.log(removeSnow('abcdd')) // -> "abc"
 // 1. Eliminamos "dd", quedando "abc"
 
-console.log(removeSnow('zzz')) // -> "z"
+// console.log(removeSnow('zzz')) // -> "z"
 // 1. Eliminamos "zz", quedando "z"
 
-console.log(removeSnow('a')) // -> "a"
+// console.log(removeSnow('a')) // -> "a"
 // No hay montículos repetidos
+
+
+/**----------------------------------------------------------------------- */
+
+// # 17
+
+console.log(detectBombs([
+  [true, false, false],
+  [false, true, false],
+  [false, false, false]
+]))
+// [
+//   [1, 2, 1],
+//   [2, 1, 1],
+//   [1, 1, 1]
+// ]
+
+console.log(detectBombs([
+  [true, false],
+  [false, false]
+]))
+// [
+//   [0, 1],
+//   [1, 1]
+// ]
+
+console.log(detectBombs([
+  [true, true],
+  [false, false],
+  [true, true]
+]))
+
+// [
+//   [1, 1],
+//   [4, 4],
+//   [1, 1]
+// ]
