@@ -13,6 +13,7 @@ import { calculatePrice } from "./12-costo-arbol";
 import { isRobotBack } from "./13-robot-de-vuelta";
 import { minMovesToStables } from "./14-acomodando-renos";
 import { drawTable } from "./15-dibujando-tablas";
+import { removeSnow } from "./15-limpiar-nieve";
 
 // # 1
 // console.log(prepareGifts([3, 1, 2, 3, 4, 2, 5]))
@@ -239,21 +240,13 @@ import { drawTable } from "./15-dibujando-tablas";
 
 // # 15
 
-console.log(drawTable(
-  [
-    { id: 1, score: 95 },
-    { id: 2, score: 85 },
-  ]
-))
-
-
-console.log(
-  drawTable([
-    { name: 'Alice', city: 'London' },
-    { name: 'Bob', city: 'Paris' },
-    { name: 'Charlie', city: 'New York' }
-  ])
-)
+// console.log(
+//   drawTable([
+//     { name: 'Alice', city: 'London' },
+//     { name: 'Bob', city: 'Paris' },
+//     { name: 'Charlie', city: 'New York' }
+//   ])
+// )
 // +---------+-----------+
 // | Name    | City      |
 // +---------+-----------+
@@ -262,13 +255,13 @@ console.log(
 // | Charlie | New York  |
 // +---------+-----------+
 
-console.log(
-  drawTable([
-    { gift: 'Doll', quantity: 10 },
-    { gift: 'Book', quantity: 5 },
-    { gift: 'Music CD', quantity: 12 }
-  ])
-)
+// console.log(
+//   drawTable([
+//     { gift: 'Doll', quantity: 10 },
+//     { gift: 'Book', quantity: 5 },
+//     { gift: 'Music CD', quantity: 12 }
+//   ])
+// )
 // +----------+----------+
 // | Gift     | Quantity |
 // +----------+----------+
@@ -276,3 +269,20 @@ console.log(
 // | Book     | 5        |
 // | Music CD | 1        |
 // +----------+----------+
+
+/**----------------------------------------------------------------------- */
+
+// # 16
+
+console.log(removeSnow('zxxzoz') ) // -> "oz"
+// 1. Eliminamos "xx", quedando "zzoz"
+// 2. Eliminamos "zz", quedando "oz"
+
+console.log(removeSnow('abcdd')) // -> "abc"
+// 1. Eliminamos "dd", quedando "abc"
+
+console.log(removeSnow('zzz')) // -> "z"
+// 1. Eliminamos "zz", quedando "z"
+
+console.log(removeSnow('a')) // -> "a"
+// No hay montículos repetidos
