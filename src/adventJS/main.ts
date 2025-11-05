@@ -16,6 +16,7 @@ import { drawTable } from "./15-dibujando-tablas";
 import { removeSnow } from "./16-limpiar-nieve";
 import { detectBombs } from "./17-buscar-bombas";
 import { findInAgenda } from "./18-agenda-magica";
+import { distributeWeight } from "./19-apila-cajas";
 
 // # 1
 // console.log(prepareGifts([3, 1, 2, 3, 4, 2, 5]))
@@ -347,3 +348,46 @@ Plaza Mayor 45 Madrid 28013 <Maria Gomez> +34-600-987-654
 // console.log(findInAgenda(agenda, '1'))
 // null
 // Explicación: Demasiados resultados
+
+
+/**----------------------------------------------------------------------- */
+
+// # 19
+
+// console.log(distributeWeight(4))
+console.log(distributeWeight(21))
+// console.log(distributeWeight(18))
+
+// Devuelve:
+//  _
+// |_|
+
+// console.log(distributeWeight(2))
+// Devuelve:
+//  ___
+// |___|
+
+// console.log(distributeWeight(3))
+// Devuelve:
+//  _
+// |_|_
+// |___|
+
+// console.log(distributeWeight(4))
+// Devuelve:
+//  ___
+// |___|
+// |___|
+
+// console.log(distributeWeight(5))
+// Devuelve:
+//  _____
+// |     |
+// |_____|
+
+// console.log(distributeWeight(6))
+// Devuelve:
+//  _
+// |_|___
+// |     |
+// |_____|
