@@ -15,6 +15,7 @@ import { minMovesToStables } from "./14-acomodando-renos";
 import { drawTable } from "./15-dibujando-tablas";
 import { removeSnow } from "./16-limpiar-nieve";
 import { detectBombs } from "./17-buscar-bombas";
+import { findInAgenda } from "./18-agenda-magica";
 
 // # 1
 // console.log(prepareGifts([3, 1, 2, 3, 4, 2, 5]))
@@ -293,34 +294,56 @@ import { detectBombs } from "./17-buscar-bombas";
 
 // # 17
 
-console.log(detectBombs([
-  [true, false, false],
-  [false, true, false],
-  [false, false, false]
-]))
+// console.log(detectBombs([
+//   [true, false, false],
+//   [false, true, false],
+//   [false, false, false]
+// ]))
 // [
 //   [1, 2, 1],
 //   [2, 1, 1],
 //   [1, 1, 1]
 // ]
 
-console.log(detectBombs([
-  [true, false],
-  [false, false]
-]))
+// console.log(detectBombs([
+//   [true, false],
+//   [false, false]
+// ]))
 // [
 //   [0, 1],
 //   [1, 1]
 // ]
 
-console.log(detectBombs([
-  [true, true],
-  [false, false],
-  [true, true]
-]))
+// console.log(detectBombs([
+//   [true, true],
+//   [false, false],
+//   [true, true]
+// ]))
 
 // [
 //   [1, 1],
 //   [4, 4],
 //   [1, 1]
 // ]
+
+/**----------------------------------------------------------------------- */
+
+// # 18
+
+const agenda = `+34-600-123-456 Calle Gran Via 12 <Juan Perez>
+Plaza Mayor 45 Madrid 28013 <Maria Gomez> +34-600-987-654
+<Carlos Ruiz> +1-800-555-0199 Fifth Ave New York`
+
+console.log(findInAgenda(agenda, '34-600-123-456'))
+// { name: "Juan Perez", address: "Calle Gran Via 12" }
+
+console.log(findInAgenda(agenda, '600-987'))
+// // { name: "Maria Gomez", address: "Plaza Mayor 45 Madrid 28013" }
+
+console.log(findInAgenda(agenda, '111'))
+// // // null
+// // // Explicación: No hay resultados
+
+console.log(findInAgenda(agenda, '1'))
+// null
+// Explicación: Demasiados resultados
