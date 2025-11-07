@@ -45,11 +45,12 @@ export function fixGiftList(received: string[], expected: string[]): {
     resume.expected[el] = total
   })
   
-  const realObj = Object.keys(resume.received).length > Object.keys(resume.expected).length
-    ? resume.received
-    : resume.expected
+  const allKeys = new Set([
+    ...Object.keys(resume.received),
+    ...Object.keys(resume.expected)
+  ])
 
-  for (const element in realObj) {
+  for (const element of allKeys) {
     const total = (resume.received[element] ?? 0) - (resume.expected[element] ?? 0)
 
     if( total == 0 ) continue;
