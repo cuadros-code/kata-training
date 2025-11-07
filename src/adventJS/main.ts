@@ -17,6 +17,7 @@ import { removeSnow } from "./16-limpiar-nieve";
 import { detectBombs } from "./17-buscar-bombas";
 import { findInAgenda } from "./18-agenda-magica";
 import { distributeWeight } from "./19-apila-cajas";
+import { fixGiftList } from "./20-regalos-faltantes-duplicados";
 
 // # 1
 // console.log(prepareGifts([3, 1, 2, 3, 4, 2, 5]))
@@ -331,9 +332,9 @@ import { distributeWeight } from "./19-apila-cajas";
 
 // # 18
 
-const agenda = `+34-600-123-456 Calle Gran Via 12 <Juan Perez>
-Plaza Mayor 45 Madrid 28013 <Maria Gomez> +34-600-987-654
-<Carlos Ruiz> +1-800-555-0199 Fifth Ave New York`
+// const agenda = `+34-600-123-456 Calle Gran Via 12 <Juan Perez>
+// Plaza Mayor 45 Madrid 28013 <Maria Gomez> +34-600-987-654
+// <Carlos Ruiz> +1-800-555-0199 Fifth Ave New York`
 
 // console.log(findInAgenda(agenda, '34-600-123-456'))
 // { name: "Juan Perez", address: "Calle Gran Via 12" }
@@ -354,10 +355,7 @@ Plaza Mayor 45 Madrid 28013 <Maria Gomez> +34-600-987-654
 
 // # 19
 
-console.log(distributeWeight(4))
-console.log(distributeWeight(6))
-console.log(distributeWeight(121))
-
+// console.log(distributeWeight(1))
 // Devuelve:
 //  _
 // |_|
@@ -367,7 +365,7 @@ console.log(distributeWeight(121))
 //  ___
 // |___|
 
-console.log(distributeWeight(3))
+// console.log(distributeWeight(3))
 // Devuelve:
 //  _
 // |_|_
@@ -391,3 +389,41 @@ console.log(distributeWeight(3))
 // |_|___
 // |     |
 // |_____|
+
+/**----------------------------------------------------------------------- */
+
+// # 20
+
+console.log(JSON.stringify(fixGiftList(['puzzle', 'car', 'doll', 'car'], ['car', 'puzzle', 'doll', 'ball'])))
+// Devuelve:
+// {
+//   missing: { ball: 1 },
+//   extra: { car: 1 }
+// }
+
+console.log(JSON.stringify(fixGiftList(
+  ['book', 'train', 'kite', 'train'],
+  ['train', 'book', 'kite', 'ball', 'kite']
+)))
+// Devuelve:
+// {
+//   missing: { ball: 1, kite: 1 },
+//   extra: { train: 1 }
+// }
+
+console.log(JSON.stringify(fixGiftList(
+  ['bear', 'bear', 'car'],
+  ['bear', 'car', 'puzzle', 'bear', 'car', 'car']
+)))
+// Devuelve:
+// {
+//   missing: { puzzle: 1, car: 2 },
+//   extra: {}
+// }
+
+console.log(JSON.stringify(fixGiftList(['bear', 'bear', 'car'], ['car', 'bear', 'bear'])))
+// Devuelve:
+// {
+//   missing: {},
+//   extra: {}
+// }
