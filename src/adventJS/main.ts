@@ -354,9 +354,9 @@ Plaza Mayor 45 Madrid 28013 <Maria Gomez> +34-600-987-654
 
 // # 19
 
-// console.log(distributeWeight(4))
-console.log(distributeWeight(21))
-// console.log(distributeWeight(18))
+console.log(distributeWeight(4))
+console.log(distributeWeight(6))
+console.log(distributeWeight(121))
 
 // Devuelve:
 //  _
@@ -367,7 +367,7 @@ console.log(distributeWeight(21))
 //  ___
 // |___|
 
-// console.log(distributeWeight(3))
+console.log(distributeWeight(3))
 // Devuelve:
 //  _
 // |_|_

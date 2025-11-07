@@ -15,14 +15,16 @@
   No añadas espacios en blanco a la derecha de una caja si no son necesarios.
 */
 
-const boxRepresentations = {
-  1 : [" _ ", "|_|"] ,
-  2 : [" ___ ", "|___|"],
-  5 : [" _____ ", "|     |", "|_____|"],
-  10: [" _________ ", "|         |", "|_________|"]
-};
+
 
 export function distributeWeight(weight: number): string {
+  const boxRepresentations: any = {
+    1 : [" _ ", "|_|"] ,
+    2 : [" ___ ", "|___|"],
+    5 : [" _____ ", "|     |", "|_____|"],
+    10: [" _________ ", "|         |", "|_________|"]
+  };
+
   let result: string[] = []
   let boxSize: number[] = []
 
@@ -45,11 +47,13 @@ export function distributeWeight(weight: number): string {
     }
   }
 
-  console.log(boxSize)
 
   boxSize.sort((a, b) => a - b).forEach((size, index) =>  {
-    let box = boxRepresentations[size].join('\n')
-    result.push(box)
+    let box = boxRepresentations[size]
+    box[0] = result.length == 0 ? box[0] : '';
+    const countStr = boxSize[index + 1] && boxRepresentations[boxSize[index + 1]][0].length - box[box.length - 1].length - 1
+    box[box.length - 1] = box[box.length - 1] + '_'.repeat(countStr < 0 ? 0 : countStr)
+    result.push(box.filter((e: string)=> e.length).join('\n'))
   })
 
  return result.join('\n');
