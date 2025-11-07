@@ -394,36 +394,56 @@ import { fixGiftList } from "./20-regalos-faltantes-duplicados";
 
 // # 20
 
-console.log(JSON.stringify(fixGiftList(['puzzle', 'car', 'doll', 'car'], ['car', 'puzzle', 'doll', 'ball'])))
-// Devuelve:
-// {
-//   missing: { ball: 1 },
-//   extra: { car: 1 }
-// }
+// console.log(JSON.stringify(fixGiftList(
+//   ['puzzle', 'car', 'doll', 'car'], 
+//   ['car', 'puzzle', 'doll', 'ball']
+// )))
+// // Devuelve:
+// // {
+// //   missing: { ball: 1 },
+// //   extra: { car: 1 }
+// // }
+
+// console.log(JSON.stringify(fixGiftList(
+//   ['book', 'train', 'kite', 'train'],
+//   ['train', 'book', 'kite', 'ball', 'kite']
+// )))
+// // Devuelve:
+// // {
+// //   missing: { ball: 1, kite: 1 },
+// //   extra: { train: 1 }
+// // }
+
+// console.log(JSON.stringify(fixGiftList(
+//   ['bear', 'bear', 'car'],
+//   ['bear', 'car', 'puzzle', 'bear', 'car', 'car']
+// )))
+// // Devuelve:
+// // {
+// //   missing: { puzzle: 1, car: 2 },
+// //   extra: {}
+// // }
+
+// console.log(JSON.stringify(fixGiftList(
+//   ['bear', 'bear', 'car'], 
+//   ['car', 'bear', 'bear']
+// )))
+// // Devuelve:
+// // {
+// //   missing: {},
+// //   extra: {}
+// // }
+
+// console.log(JSON.stringify(fixGiftList(
+//   ['car', 'car'],               // received
+//   ['car', 'car', 'train']       // expected
+// )))
+// // Esperado:
+// // { missing: { train: 1 }, extra: {} }
 
 console.log(JSON.stringify(fixGiftList(
-  ['book', 'train', 'kite', 'train'],
-  ['train', 'book', 'kite', 'ball', 'kite']
+  ['car', 'robot'],     // received
+  ['train', 'puzzle']   // expected
 )))
-// Devuelve:
-// {
-//   missing: { ball: 1, kite: 1 },
-//   extra: { train: 1 }
-// }
-
-console.log(JSON.stringify(fixGiftList(
-  ['bear', 'bear', 'car'],
-  ['bear', 'car', 'puzzle', 'bear', 'car', 'car']
-)))
-// Devuelve:
-// {
-//   missing: { puzzle: 1, car: 2 },
-//   extra: {}
-// }
-
-console.log(JSON.stringify(fixGiftList(['bear', 'bear', 'car'], ['car', 'bear', 'bear'])))
-// Devuelve:
-// {
-//   missing: {},
-//   extra: {}
-// }
+// Esperado:
+// { missing: { train: 1, puzzle: 1 }, extra: { car: 1, robot: 1 } }

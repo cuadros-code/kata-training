@@ -26,9 +26,43 @@ export function fixGiftList(received: string[], expected: string[]): {
   missing: Record<string, number>, 
   extra: Record<string, number> 
 } {
-  // Escribe tu código aquí
-  return {
+  const resume: any = {
+    received: {},
+    expected: {}
+  }
+
+  const result: any = {
     missing: {},
     extra: {}
   }
+
+  received.forEach( el => {
+    const total = received.filter(e => e == el).length
+    resume.received[el] = total
+  })
+  expected.forEach( el => {
+    const total = expected.filter(e => e == el).length
+    resume.expected[el] = total
+  })
+  
+  const realObj = Object.keys(resume.received).length > Object.keys(resume.expected).length
+    ? resume.received
+    : resume.expected
+
+  for (const element in realObj) {
+    const total = (resume.received[element] ?? 0) - (resume.expected[element] ?? 0)
+
+    if( total == 0 ) continue;
+
+    if( total > 0 ) {
+      result.extra[element] = total
+      continue;
+    }
+    if( total < 0) {
+      result.missing[element] = Math.abs(total)
+      continue;
+    }
+  }
+
+  return result;
 }
