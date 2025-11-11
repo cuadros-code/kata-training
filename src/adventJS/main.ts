@@ -18,6 +18,7 @@ import { detectBombs } from "./17-buscar-bombas";
 import { findInAgenda } from "./18-agenda-magica";
 import { distributeWeight } from "./19-apila-cajas";
 import { fixGiftList } from "./20-regalos-faltantes-duplicados";
+import { treeHeight } from "./21-calcula-altura-arbol";
 
 // # 1
 // console.log(prepareGifts([3, 1, 2, 3, 4, 2, 5]))
@@ -441,9 +442,69 @@ import { fixGiftList } from "./20-regalos-faltantes-duplicados";
 // // Esperado:
 // // { missing: { train: 1 }, extra: {} }
 
-console.log(JSON.stringify(fixGiftList(
-  ['car', 'robot'],     // received
-  ['train', 'puzzle']   // expected
-)))
+// console.log(JSON.stringify(fixGiftList(
+//   ['car', 'robot'],     // received
+//   ['train', 'puzzle']   // expected
+// )))
 // Esperado:
 // { missing: { train: 1, puzzle: 1 }, extra: { car: 1, robot: 1 } }
+
+/**----------------------------------------------------------------------- */
+
+// # 20
+
+// Definición del árbol
+const tree = {
+  value: '🎁',
+  left: {
+    value: '🎄',
+    left: {
+      value: '⭐',
+      left: null,
+      right: null
+    },
+    right: {
+      value: '🎅',
+      left: null,
+      right: null
+    }
+  },
+  right: {
+    value: '❄️',
+    left: null,
+    right: {
+      value: '🦌',
+      left: null,
+      right: null
+    }
+  }
+}
+
+// Representación gráfica del árbol:
+//        🎁
+//       /   \
+//     🎄     ❄️
+//    /  \      \
+//  ⭐   🎅      🦌
+
+
+console.log(treeHeight(tree))
+// Devuelve: 3
+
+
+const tree_1  = {
+  value: '🎄',
+  left: {
+    value: '⭐',
+    left: null,
+    right: null
+  },
+  right: {
+    value: '🎅',
+    left: null,
+    right: null
+  }
+}
+
+console.log(treeHeight(tree_1))
+// 2
