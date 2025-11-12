@@ -19,6 +19,7 @@ import { findInAgenda } from "./18-agenda-magica";
 import { distributeWeight } from "./19-apila-cajas";
 import { fixGiftList } from "./20-regalos-faltantes-duplicados";
 import { treeHeight } from "./21-calcula-altura-arbol";
+import { generateGiftSets } from "./22-combinacion-regalos";
 
 // # 1
 // console.log(prepareGifts([3, 1, 2, 3, 4, 2, 5]))
@@ -454,31 +455,31 @@ import { treeHeight } from "./21-calcula-altura-arbol";
 // # 20
 
 // Definición del árbol
-const tree = {
-  value: '🎁',
-  left: {
-    value: '🎄',
-    left: {
-      value: '⭐',
-      left: null,
-      right: null
-    },
-    right: {
-      value: '🎅',
-      left: null,
-      right: null
-    }
-  },
-  right: {
-    value: '❄️',
-    left: null,
-    right: {
-      value: '🦌',
-      left: null,
-      right: null
-    }
-  }
-}
+// const tree = {
+//   value: '🎁',
+//   left: {
+//     value: '🎄',
+//     left: {
+//       value: '⭐',
+//       left: null,
+//       right: null
+//     },
+//     right: {
+//       value: '🎅',
+//       left: null,
+//       right: null
+//     }
+//   },
+//   right: {
+//     value: '❄️',
+//     left: null,
+//     right: {
+//       value: '🦌',
+//       left: null,
+//       right: null
+//     }
+//   }
+// }
 
 // Representación gráfica del árbol:
 //        🎁
@@ -488,23 +489,50 @@ const tree = {
 //  ⭐   🎅      🦌
 
 
-console.log(treeHeight(tree))
+// console.log(treeHeight(tree))
 // Devuelve: 3
 
 
-const tree_1  = {
-  value: '🎄',
-  left: {
-    value: '⭐',
-    left: null,
-    right: null
-  },
-  right: {
-    value: '🎅',
-    left: null,
-    right: null
-  }
-}
+// const tree_1  = {
+//   value: '🎄',
+//   left: {
+//     value: '⭐',
+//     left: null,
+//     right: null
+//   },
+//   right: {
+//     value: '🎅',
+//     left: null,
+//     right: null
+//   }
+// }
 
-console.log(treeHeight(tree_1))
+// console.log(treeHeight(tree_1))
 // 2
+
+/**----------------------------------------------------------------------- */
+
+// # 21
+
+// console.log(generateGiftSets(['car', 'doll', 'puzzle']))
+// [
+//   ['car'],
+//   ['doll'],
+//   ['puzzle'],
+//   ['car', 'doll'],
+//   ['car', 'puzzle'],
+//   ['doll', 'puzzle'],
+//   ['car', 'doll', 'puzzle']
+// ]
+
+// console.log(generateGiftSets(['ball']))
+// [
+//   ['ball']
+// ]
+
+// console.log(generateGiftSets(['game', 'pc']))
+// [
+//   ['game'],
+//   ['pc'],
+//   ['game', 'pc']
+// ]
