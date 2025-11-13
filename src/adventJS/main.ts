@@ -20,6 +20,7 @@ import { distributeWeight } from "./19-apila-cajas";
 import { fixGiftList } from "./20-regalos-faltantes-duplicados";
 import { treeHeight } from "./21-calcula-altura-arbol";
 import { generateGiftSets } from "./22-combinacion-regalos";
+import { findMissingNumbers } from "./23-numeros-perdidos";
 
 // # 1
 // console.log(prepareGifts([3, 1, 2, 3, 4, 2, 5]))
@@ -452,7 +453,7 @@ import { generateGiftSets } from "./22-combinacion-regalos";
 
 /**----------------------------------------------------------------------- */
 
-// # 20
+// # 21
 
 // Definición del árbol
 // const tree = {
@@ -512,7 +513,7 @@ import { generateGiftSets } from "./22-combinacion-regalos";
 
 /**----------------------------------------------------------------------- */
 
-// # 21
+// # 22
 
 // console.log(generateGiftSets(['car', 'doll', 'puzzle']))
 // [
@@ -536,3 +537,20 @@ import { generateGiftSets } from "./22-combinacion-regalos";
 //   ['pc'],
 //   ['game', 'pc']
 // ]
+
+
+/**----------------------------------------------------------------------- */
+
+// # 22
+
+findMissingNumbers([1, 2, 4, 6])
+// [3, 5]
+
+findMissingNumbers([4, 8, 7, 2])
+// [1, 3, 5, 6]
+
+findMissingNumbers([3, 2, 1, 1])
+// []
+
+findMissingNumbers([5, 5, 5, 3, 3, 2, 1])
+// [4]
